@@ -50,3 +50,9 @@ python3 dcli.py netcheck google.com --ports 22,443
 
 text
 Output: Pings google.com and checks ports 22 and 443.
+
+**Analyze Logs:**
+python3 dcli.py logs /var/log/syslog --errors-only
+
+text
+Output: Shows the last 100 lines, filtered for errors.

@@ -44,3 +44,9 @@ python3 dcli.py monitor --threshold-cpu 70
 
 text
 Output: Displays CPU, memory, and disk usage; alerts if CPU exceeds 70%.
+
+**Check Network Connectivity:**
+python3 dcli.py netcheck google.com --ports 22,443
+
+text
+Output: Pings google.com and checks ports 22 and 443.

@@ -1,8 +1,22 @@
 import click
+import paramiko
 import subprocess
 import socket
 import psutil
 from datetime import datetime
+
+
+# Shared SSH helper
+def ssh_connect(host, user, key_path=None, password=None):
+    client = paramiko.SSHClient()
+    client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
+    if key_path:
+        client.connect(host, username=user, key_filename=key_path)
+    elif password:
+        client.connect(host, username=user, password=password)
+    else:
+        raise ValueError("Provide key_path or password for SSH")
+    return client
 
 @click.group()
 def cli():

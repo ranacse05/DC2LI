@@ -79,13 +79,20 @@ def monitor(host, threshold_cpu):
       cli.py monitor
       cli.py monitor --threshold-cpu 90
     """
-    cpu = psutil.cpu_percent(interval=1)
-    mem = psutil.virtual_memory().percent
-    disk = psutil.disk_usage('/').percent
-    click.echo(f"[{datetime.now()}] CPU: {cpu}%, Mem: {mem}%, Disk: {disk}%")
-    if cpu > threshold_cpu:
-        click.echo("High CPU alert!")
-
+    if host != 'localhost':
+        click.echo(f"Connecting to {host} for monitoring...")
+        client = ssh_connect(host, 'admin')  # Use env vars for creds in prod
+        stdin, stdout, stderr = client.exec_command('uptime && free -h && df -h')
+        output = stdout.read().decode()
+        client.close()
+        click.echo(output)
+    else:
+        cpu = psutil.cpu_percent(interval=1)
+        mem = psutil.virtual_memory().percent
+        disk = psutil.disk_usage('/').percent
+        click.echo(f"[{datetime.now()}] CPU: {cpu}%, Mem: {mem}%, Disk: {disk}%")
+        if cpu > threshold_cpu:
+            click.echo("High CPU alert!")
 
 #Log analyzer
 @cli.command()

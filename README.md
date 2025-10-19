@@ -39,20 +39,22 @@ Run the tool with `python3 dcli.py` followed by a command. Use `--help` for deta
 
 ### Examples
 
-**Monitor System Resources:**
-python3 dcli.py monitor --threshold-cpu 70
-
-text
-Output: Displays CPU, memory, and disk usage; alerts if CPU exceeds 70%.
-
-**Check Network Connectivity:**
-python3 dcli.py netcheck google.com --ports 22,443
-
-text
-Output: Pings google.com and checks ports 22 and 443.
-
-**Analyze Logs:**
-python3 dcli.py logs /var/log/syslog --errors-only
-
-text
-Output: Shows the last 100 lines, filtered for errors.
+# MONITORING
+```
+python3 dcli.py monitor                                    # Local system
+python3 dcli.py monitor --host IP --user USER --password PASS  # Remote
+```
+# NETWORK
+```
+python3 dcli.py netcheck HOST1 HOST2                      # Multiple hosts
+python3 dcli.py netcheck HOST --ports 80,443,3306         # Custom ports
+```
+# LOGS
+```
+python3 dcli.py logs /path/to/logfile                     # View logs
+python3 dcli.py logs /path/to/logfile --errors-only       # Errors only
+```
+# HELP
+```
+python3 dcli.py --help                                    # All commands
+```

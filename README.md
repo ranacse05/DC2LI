@@ -1,4 +1,4 @@
-# DCLI - Data Center CLI Toolkit
+# DC2LI - Data Center CLI Toolkit
 
 <p align="center">
   <strong>A Python-based command-line tool designed to automate routine system and network tasks</strong>
@@ -28,7 +28,7 @@
 ### Clone the repository:
 ```
 git clone https://github.com/ranacse05/dcli.git
-cd dcli
+cd dc2li
 ```
 ### Install dependencies:
 pip install click psutil paramiko
@@ -58,3 +58,5 @@ python3 dcli.py logs /path/to/logfile --errors-only       # Errors only
 ```
 python3 dcli.py --help                                    # All commands
 ```
+
+<p align="center"> <em>Built with ❤️ for data center professionals</em> </p>

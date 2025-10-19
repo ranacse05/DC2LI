@@ -37,24 +37,24 @@ pip install click psutil paramiko
 
 Run the tool with `python3 dcli.py` followed by a command. Use `--help` for details on each command.
 
-### Examples
+## Examples
 
-# MONITORING
+### MONITORING
 ```
 python3 dcli.py monitor                                    # Local system
 python3 dcli.py monitor --host IP --user USER --password PASS  # Remote
 ```
-# NETWORK
+### NETWORK
 ```
 python3 dcli.py netcheck HOST1 HOST2                      # Multiple hosts
 python3 dcli.py netcheck HOST --ports 80,443,3306         # Custom ports
 ```
-# LOGS
+### LOGS
 ```
 python3 dcli.py logs /path/to/logfile                     # View logs
 python3 dcli.py logs /path/to/logfile --errors-only       # Errors only
 ```
-# HELP
+### HELP
 ```
 python3 dcli.py --help                                    # All commands
 ```
